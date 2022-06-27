@@ -1,7 +1,7 @@
 interface Post {
   title: string;
   _id: string;
-  _created_at: string;
+  _createdAt: string;
   author: {
     name: string;
     image: string;
@@ -16,4 +16,13 @@ interface Post {
     current: string;
   };
   body: object[];
+  comments: Comment[];
+}
+
+interface Comment {
+  name: string;
+  email: string;
+  comment: string;
+  _createdAt: string;
+  _id: string;
 }
