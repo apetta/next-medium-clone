@@ -1,10 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import { GetStaticPaths, GetStaticProps } from "next";
-import Header from "../../components/Header";
+
 import { sanityClient, urlFor } from "../../sanity";
 import PortableText from "react-portable-text";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
+import Header from "../../components/Header";
+import Head from "next/head";
 
 type Inputs = {
   _id: string;
@@ -33,14 +35,15 @@ function Post({ post }: { post: Post }) {
       })
       .catch((err) => {
         setSubmitted(false);
-        console.log(err);
       });
   };
 
-  console.log(post);
-
   return (
-    <main>
+    <main className="min-w-[320px]">
+      {/* Add slug to title */}
+      <Head>
+        <title>Medium Clone - {post.title}</title>
+      </Head>
       <Header />
 
       <img
@@ -167,10 +170,14 @@ function Post({ post }: { post: Post }) {
         <h3 className="text-4xl">Comments</h3>
         <hr className="pb-2" />
 
+        {post.comments.length === 0 && (
+          <p className="text-gray-500">No comments yet</p>
+        )}
+
         {post.comments.map((comment) => (
           <div key={comment._id}>
             <p>
-              <span className="text-yellow-500">{comment.name}</span>:{" "}
+              <span className="text-yellow-500">{comment.name}</span>{" "}
               {comment.comment}
             </p>
           </div>

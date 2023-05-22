@@ -3,18 +3,19 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import Header from "../components/Header";
+
 import { sanityClient, urlFor } from "../sanity";
+import Header from "../components/Header";
 
 interface Props {
   posts: Post[];
 }
 
 const Home = ({ posts }: Props) => {
-  console.log(posts);
+
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto min-w-[320px]">
       <Head>
         <title>Medium Clone</title>
         <link rel="icon" href="/medium-icon.svg" />

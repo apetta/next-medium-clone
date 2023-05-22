@@ -4,7 +4,7 @@ import logo from "/public/medium-logo.png";
 
 function Header() {
   return (
-    <header className="flex justify-between p-5 max-w-7xl mx-auto">
+    <header className="flex justify-between p-5 max-w-7xl mx-auto select-none">
       <div className="flex items-center space-x-5">
         <div className="w-44 cursor-pointer">
           <Link href="/" passHref>
@@ -21,9 +21,9 @@ function Header() {
           </h3>
         </div>
       </div>
-      <div className="flex items-center space-x-5 text-green-600">
-        <h3>Sign In</h3>
-        <h3 className="border border-green-600 px-4 py-1 rounded-full hover:bg-green-600 hover:text-white cursor-not-allowed">
+      <div className="flex items-center space-x-5 text-green-600 shrink-0">
+        <h3 className="">Sign In</h3>
+        <h3 className="border border-green-600 px-4 py-1 rounded-full hover:bg-green-600 hover:text-white cursor-not-allowed hidden sm:inline">
           Get Started
         </h3>
       </div>
